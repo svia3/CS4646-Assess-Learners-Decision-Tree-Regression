@@ -14,23 +14,23 @@ This project involved cerating a Decision Tree learner, Random Forest, and Bag L
 	#          |             |               |               
 	#          |             |               |               
 
-# Implementation
+# DT Implementation
 
 ## addEvidence()
 
-  def addEvidence(self, Xtrain, Ytrain):
+  	def addEvidence(self, Xtrain, Ytrain):
 
  This is a wrapper function for recursive function calls used to build the tree.
 
 ## buildTree()
 
-  def buildTree(self, data):
+  	def buildTree(self, data):
   
 In order to build our model, training evidence was appended to the the tree and split on the absolute correlation coefficient, calculated using a helper method. This recursive function was used to split the training data on the condition that values in the Xth feature will be to the left of the root caller and greater values will be to the right.  A varying leaf size was used and experimented with to prevent overfitting our training data to the test data. Base cases involve maximum stack depth, the remaining values are all the same with no duplicate, and aggregating the the remaining rows if below the hyper-parameter "leaf size."
 
 ## query()
 
-  def query(self, Xpoints):
+  	def query(self, Xpoints):
 
 Using our test data, with Xtest and Ytest broken up appropriately, the tree is traversed according to the split value of a certain node, resulting in a 'Y prediction' that is appended to a list for error checking as compared to 'Ytest.'
 
